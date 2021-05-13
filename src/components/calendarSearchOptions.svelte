@@ -30,10 +30,10 @@
 
     {#if choiceChosen == "Week/Custom"}
       <div class="input-wrapper">
-        <h3>Start Date:</h3>
+        <h4>Start Date:</h4>
         <input type="date" class="search-label" />
 
-        <h3>End Date:</h3>
+        <h4>End Date:</h4>
         <input type="date" class="search-label" />
       </div>
     {/if}
@@ -56,7 +56,7 @@
     width: 12%;
   }
   h2,
-  h3 {
+  h4 {
     color: rgb(194, 194, 194);
     margin-right: 1%;
   }
