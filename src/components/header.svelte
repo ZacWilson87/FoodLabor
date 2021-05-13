@@ -18,6 +18,7 @@
     width: 100%;
     height: auto;
     border-bottom: 1px;
+    align-items: baseline;
   }
 
   header .nav-links {
@@ -41,4 +42,5 @@
   hr {
     width: 98%;
   }
+
 </style>

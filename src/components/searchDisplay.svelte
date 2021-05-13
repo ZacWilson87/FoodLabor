@@ -1,19 +1,28 @@
 <script>
 </script>
 
-<div class="display-box">
-  <p>Test</p>
-</div>
+<main>
+  <div class="display-box">
+    <p>Test</p>
+  </div>
+</main>
 
 <style>
+  main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
   .display-box {
     background-color: rgba(170, 170, 170, 0.5);
     display: flex;
-    position: relative;
+    height: auto;
     justify-content: center;
+    align-items: center;
     flex-direction: row;
-    margin-left: 5%;
-    margin-top: 5%;
-    width: 80%;
+    text-align: center;
+    width: 40%;
   }
+
 </style>
