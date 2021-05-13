@@ -1,7 +1,15 @@
 <script>
-  var salesDollar;
-  var laborDollar;
-  var laborPecent;
+  export var salesDollar = null;
+  export var laborDollar = null;
+  export var laborPercent = "waiting...";
+
+  let convertToPercentage = () => {
+    laborPercent = (laborDollar / salesDollar) * 100;
+    console.log(typeof laborPercent.toString());
+    let returnedPercent = laborPercent.toString().slice(0, 5);
+    console.log(returnedPercent);
+    return returnedPercent;
+  };
 
 </script>
 
@@ -25,11 +33,11 @@
       <input type="number" bind:value={laborDollar} />
     </label>
 
-    <button class="submitRecord">submit</button>
+    <button class="submitRecord" on:click={convertToPercentage}>submit</button>
 
     <div class="labor-percent">
       <h3>Labor %</h3>
-      <p class="labor-output">{laborPecent}</p>
+      <p class="labor-output">{laborPercent}%</p>
     </div>
   </div>
 </div>
@@ -61,6 +69,7 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-evenly;
+    color: rgb(65, 127, 241);
   }
   input {
     justify-content: center;

@@ -22,7 +22,7 @@
     align-items: center;
     flex-direction: row;
     text-align: center;
-    width: 40%;
+    width: 50%;
   }
 
 </style>
