@@ -1,5 +1,23 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  import { getRecords } from "../api/records";
+
+  const dispatch = createEventDispatcher();
+
+  function searchValue() {
+    dispatch("searchValues", {
+      dateOne: dateOne,
+      dateTwo: dateTwo,
+    });
+
+    dateOne = null;
+    dateTwo = null;
+  }
+
   let choiceChosen = "";
+  let dateOne;
+  let dateTwo;
+
 </script>
 
 <main>
@@ -14,33 +32,40 @@
       bind:value={choiceChosen}
     >
       <option value="" disabled select hidden>Select</option>
+      <option>All</option>
       <option value="date">Day</option>
-      <!--Change logic for how this will work-->
       <option>Week/Custom</option>
-      <option value="month">Month</option>
+      <!-- <option value="month">Month</option>  -->
     </select>
 
     {#if !choiceChosen}
-      <input type={choiceChosen} style="display: none" class="search-label" />
+      <input type="date" style="display: none" class="search-label" />
+    {/if}
+
+    {#if choiceChosen == "All"}
+      <button on:click={searchValue}>Get All</button>
     {/if}
 
     {#if choiceChosen == "date"}
-      <input type={choiceChosen} class="search-label" />
+      <input bind:value={dateOne} type="date" class="search-label" required />
+      <button on:click={searchValue}>Submit</button>
     {/if}
 
     {#if choiceChosen == "Week/Custom"}
       <div class="input-wrapper">
         <h4>Start Date:</h4>
-        <input type="date" class="search-label" />
+        <input bind:value={dateOne} type="date" class="search-label" required />
 
         <h4>End Date:</h4>
-        <input type="date" class="search-label" />
+        <input bind:value={dateTwo} type="date" class="search-label" required />
       </div>
+      <button on:click={searchValue}>Submit</button>
     {/if}
-
-    {#if choiceChosen == "month"}
+    <!-- 
+        {#if choiceChosen == "month"}
       <input type={choiceChosen} />
     {/if}
+    -->
   </div>
 </main>
 
@@ -75,6 +100,11 @@
     flex-direction: row;
     width: 50%;
     justify-content: space-between;
-    margin-top: 2%;
+    margin: 1% 0;
   }
+
+  button {
+    margin: 1%;
+  }
+
 </style>

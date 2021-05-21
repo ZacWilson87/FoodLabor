@@ -3,6 +3,7 @@
 
   import Router from "svelte-spa-router";
   import routes from "./routes";
+
 </script>
 
 <main>
@@ -15,4 +16,5 @@
     width: 100%;
     background-color: rgb(88, 88, 88);
   }
+
 </style>

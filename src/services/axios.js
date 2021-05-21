@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 //Currently set for running on local machine, will need to change url when for deployment
-const axiosApi = axios.create({
-    baseURL: "http://localhost8055/items/records"
+
+const axiosAPI = axios.create({
+    baseURL: "http://localhost:8055"
 });
 
 const apiRequest = (method, url, request) => {
@@ -15,7 +16,7 @@ const apiRequest = (method, url, request) => {
         data: request,
         headers
     }).then(res => {
-        return Promise.resolve(res.data);
+        return Promise.resolve(res.data.data);
     })
         .catch(err => {
             return Promise.reject(err);

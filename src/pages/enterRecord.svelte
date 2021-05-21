@@ -1,14 +1,27 @@
 <script>
-  export var salesDollar = null;
-  export var laborDollar = null;
-  export var laborPercent = "waiting...";
+  import { createRecord } from "../api/records";
+  var date;
+  var salesDollar = null;
+  var laborDollar = null;
+  var laborPercent = "waiting...";
 
   let convertToPercentage = () => {
     laborPercent = (laborDollar / salesDollar) * 100;
-    console.log(typeof laborPercent.toString());
+    //console.log(typeof laborPercent.toString());
     let returnedPercent = laborPercent.toString().slice(0, 5);
-    console.log(returnedPercent);
-    return returnedPercent;
+    //console.log(returnedPercent);
+    laborPercent = returnedPercent;
+
+    // create record object
+    let newRecord = {
+      daily_sales: salesDollar,
+      for_date: date,
+      labor_amount: laborDollar,
+      labor_percent: laborPercent,
+    };
+
+    createRecord(newRecord);
+    // send new record to records api
   };
 
 </script>
@@ -20,23 +33,23 @@
   <div class="record">
     <label for="date">
       Date
-      <input type="date" id="date" />
+      <input type="date" id="date" bind:value={date} />
     </label>
 
     <label for="sales">
-      Sales(dollar)
+      Sales Dollar
       <input type="number" id="sales" bind:value={salesDollar} />
     </label>
 
     <label for="labor">
-      Labor(dollar)
+      Labor Dollar
       <input type="number" bind:value={laborDollar} />
     </label>
 
     <button class="submitRecord" on:click={convertToPercentage}>submit</button>
 
     <div class="labor-percent">
-      <h3>Labor %</h3>
+      <h3>Labor Percent:</h3>
       <p class="labor-output">{laborPercent}%</p>
     </div>
   </div>
@@ -69,7 +82,7 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-evenly;
-    color: rgb(65, 127, 241);
+    color: rgb(146, 146, 146);
   }
   input {
     justify-content: center;

@@ -1,9 +1,27 @@
 <script>
+  export let recordList = [];
+
 </script>
 
 <main>
   <div class="display-box">
-    <p>Test</p>
+    {#each recordList as aRecord}
+      <div class="dbEntry">
+        <p>
+          {aRecord.for_date}
+        </p>
+        <p>
+          {aRecord.daily_sales}
+        </p>
+        <p>
+          {aRecord.labor_amount}
+        </p>
+        <p>
+          {aRecord.labor_percent}
+        </p>
+      </div>
+      <hr />
+    {/each}
   </div>
 </main>
 
@@ -12,17 +30,24 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items: center;
+  }
+  .dbEntry {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  hr {
+    margin: 0;
+    width: 98%;
+    color: inherit;
   }
   .display-box {
-    background-color: rgba(170, 170, 170, 0.5);
     display: flex;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    text-align: center;
+    flex-direction: column;
+    background-color: rgba(170, 170, 170, 0.5);
     width: 50%;
+    border-radius: 0.25em;
+    align-items: center;
   }
 
 </style>

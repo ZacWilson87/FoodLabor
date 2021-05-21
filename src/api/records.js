@@ -1,8 +1,9 @@
-import Api from '../services/axios';
+import Api from '../services/axios'
 
 export const getRecords = async () => {
     try {
-        const response = await Api.get(`/records`)
+        const response = await Api.get(`/items/records`)
+        console.log(response);
         return response;
     } catch (error) {
         console.error(error);
@@ -12,22 +13,27 @@ export const getRecords = async () => {
 export const getRecordsByDate = async (date) => {
     try {
         //Will need to look at documentation to see where ${date} needs to go
-        const response = await Api.get(`/records`)
+        const response = await Api.get(`/items/records?filter={ "for_date": { "_eq": "${date}" }}`
+        )
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+};
+export const getRecordsByTwoDates = async (dateOne, dateTwo) => {
+    try {
+        //Will need to look at documentation to see where ${date} needs to go
+        const response = await Api.get(`/items/records?filter={ "for_date": { "_between": ["${dateOne}", "${dateTwo}"] }}`
+        )
         return response;
     } catch (error) {
         console.error(error);
     }
 };
 
-export const createRecord = async (dailySales, forDate, laborAmount, laborPercent) => {
+export const createRecord = async (obj) => {
     try {
-        const queryObj = {
-            "daily_sales": { dailySales },
-            "for_date": { forDate },
-            "labor_amount": { laborAmount },
-            "labor_percent": { laborPercent },
-        }
-        const response = await Api.put('/records', queryObj);
+        const response = await Api.post('/items/records', obj);
         return response;
     } catch (error) {
         console.error(error);
