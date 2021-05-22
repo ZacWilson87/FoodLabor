@@ -16,8 +16,9 @@
     top: 0;
     left: 0;
   }
+
   .login-frame {
-    background-color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(107, 107, 107, 0.5);
     position: fixed;
     left: 10%;
     top: 10%;
@@ -26,6 +27,7 @@
     border-radius: 0.25em;
     text-align: center;
   }
+
   .login {
     position: relative;
     background-color: rgb(65, 105, 1);
@@ -36,7 +38,9 @@
 
     width: 25%;
   }
+
   .login:hover {
     background-color: rgb(114, 185, 0);
   }
+
 </style>

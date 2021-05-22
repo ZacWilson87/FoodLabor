@@ -4,11 +4,17 @@
   var salesDollar = null;
   var laborDollar = null;
   var laborPercent = "waiting...";
+  var message = "";
 
   let convertToPercentage = () => {
-    laborPercent = (laborDollar / salesDollar) * 100;
+    if (laborDollar == 0) {
+      message = "You cannot divide by Zero";
+      return;
+    } else {
+      laborPercent = (laborDollar / salesDollar) * 100;
+    }
     //console.log(typeof laborPercent.toString());
-    let returnedPercent = laborPercent.toString().slice(0, 5);
+    let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj
     //console.log(returnedPercent);
     laborPercent = returnedPercent;
 
@@ -33,7 +39,7 @@
   <div class="record">
     <label for="date">
       Date
-      <input type="date" id="date" bind:value={date} />
+      <input type="date" id="date" bind:value={date} required />
     </label>
 
     <label for="sales">
@@ -43,10 +49,12 @@
 
     <label for="labor">
       Labor Dollar
-      <input type="number" bind:value={laborDollar} />
+      <input type="number" bind:value={laborDollar} required />
     </label>
 
     <button class="submitRecord" on:click={convertToPercentage}>submit</button>
+
+    <p>{message}</p>
 
     <div class="labor-percent">
       <h3>Labor Percent:</h3>

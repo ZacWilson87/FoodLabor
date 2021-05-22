@@ -38,10 +38,16 @@ main {
    * Correct the font size and margin on `h1` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.
    */
-
+p {
+  font-size: 1rem;
+  width: auto;
+}
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+}
+h2 {
+  font-size: 1.75rem;
 }
 
 /* Grouping content
@@ -172,6 +178,7 @@ textarea {
 input {
   border-radius: 0.2em;
   border-color: #c2c2c2;
+  height: 2em;
 }
 select {
 }

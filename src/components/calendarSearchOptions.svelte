@@ -78,7 +78,7 @@
     flex-direction: column;
   }
   #viewByChoice {
-    width: 12%;
+    width: fit-content;
   }
   h2,
   h4 {
@@ -90,17 +90,19 @@
   }
   select,
   option {
-    width: 10%;
+    width: auto;
     text-align: center;
     margin: 1%;
     border-radius: 0.25em;
   }
+
   .input-wrapper {
     display: flex;
     flex-direction: row;
-    width: 50%;
     justify-content: space-between;
     margin: 1% 0;
+    height: auto;
+    align-items: baseline;
   }
 
   button {

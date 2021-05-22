@@ -35,6 +35,9 @@
     display: flex;
     flex-direction: row;
   }
+  .nav-links p {
+    width: auto;
+  }
   #headerTitle {
     margin-right: 3%;
     color: rgb(194, 194, 194);

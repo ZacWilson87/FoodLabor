@@ -17,8 +17,9 @@
           {aRecord.labor_amount}
         </p>
         <p>
-          {aRecord.labor_percent}
+          {aRecord.labor_percent}%
         </p>
+        <p>delete</p>
       </div>
       <hr />
     {/each}
@@ -44,8 +45,9 @@
   .display-box {
     display: flex;
     flex-direction: column;
-    background-color: rgba(170, 170, 170, 0.5);
-    width: 50%;
+    background-color: rgba(170, 170, 170, 0.25);
+    min-width: 50%;
+    width: auto;
     border-radius: 0.25em;
     align-items: center;
   }
