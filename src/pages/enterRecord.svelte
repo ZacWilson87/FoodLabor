@@ -7,18 +7,28 @@
   var message = "";
 
   let convertToPercentage = () => {
+    //laborDollar validation
     if (laborDollar == 0) {
       message = "You cannot divide by Zero";
       return;
+    } else if (
+      typeof laborDollar == "null" ||
+      typeof salesDollar == "null" ||
+      typeof date == "undefined"
+    ) {
+      message = "All fields must be filled out";
+      console.log(laborDollar);
+      return;
     } else {
       laborPercent = (laborDollar / salesDollar) * 100;
+      message = `New record entered for ${date}`;
     }
-    //console.log(typeof laborPercent.toString());
+
     let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj
-    //console.log(returnedPercent);
+
     laborPercent = returnedPercent;
 
-    // create record object
+    // create record object to use for api storage
     let newRecord = {
       daily_sales: salesDollar,
       for_date: date,
@@ -54,7 +64,7 @@
 
     <button class="submitRecord" on:click={convertToPercentage}>submit</button>
 
-    <p>{message}</p>
+    <h4>{message}</h4>
 
     <div class="labor-percent">
       <h3>Labor Percent:</h3>
@@ -96,6 +106,9 @@
     justify-content: center;
     align-items: center;
     margin: 0.5em;
+  }
+  h4 {
+    color: rgb(255, 104, 104);
   }
 
 </style>

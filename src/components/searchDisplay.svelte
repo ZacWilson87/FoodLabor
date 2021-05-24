@@ -1,5 +1,13 @@
 <script>
+  import { deleteRecord } from "../api/records";
+
   export let recordList = [];
+
+  const deleteThisRecord = async (id) => {
+    const response = await deleteRecord(id);
+    location.reload();
+    return response;
+  };
 
 </script>
 
@@ -19,7 +27,7 @@
         <p>
           {aRecord.labor_percent}%
         </p>
-        <p>delete</p>
+        <p on:click={deleteThisRecord(aRecord.id)}>delete</p>
       </div>
       <hr />
     {/each}

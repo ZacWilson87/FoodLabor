@@ -1,6 +1,5 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { getRecords } from "../api/records";
 
   const dispatch = createEventDispatcher();
 
@@ -82,7 +81,7 @@
   }
   h2,
   h4 {
-    color: rgb(194, 194, 194);
+    color: #cfcfcf;
     margin-right: 1%;
   }
   input {

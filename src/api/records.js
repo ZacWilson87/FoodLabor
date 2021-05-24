@@ -39,3 +39,12 @@ export const createRecord = async (obj) => {
         console.error(error);
     }
 }
+
+export const deleteRecord = async (id) => {
+    try {
+        const response = await Api.delete(`/items/records/${id}`);
+        return response;
+    } catch (error) {
+        console.error(error)
+    }
+}
