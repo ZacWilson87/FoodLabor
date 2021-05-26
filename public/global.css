@@ -179,8 +179,10 @@ input {
   border-radius: 0.2em;
   border-color: #c2c2c2;
   height: 2em;
+  background-color: rgb(224, 224, 224);
 }
 select {
+  background-color: rgb(224, 224, 224);
 }
 
 /**

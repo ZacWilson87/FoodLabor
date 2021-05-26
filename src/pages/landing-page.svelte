@@ -15,6 +15,7 @@
     width: 100%;
     top: 0;
     left: 0;
+    overflow: hidden;
   }
 
   .login-frame {
@@ -22,21 +23,22 @@
     position: fixed;
     left: 10%;
     top: 10%;
-    width: 25%;
+    width: auto;
     max-height: 25%;
     border-radius: 0.25em;
     text-align: center;
+    padding: 0 5%;
   }
 
   .login {
     position: relative;
-    background-color: rgb(65, 105, 1);
-    border: 1%;
+    background-color: rgb(82, 131, 3);
+    border: 0.1rem solid black;
     color: black;
     border-color: black;
-    border-radius: 0.5em;
-
-    width: 25%;
+    border-radius: 0.25em;
+    width: 60px;
+    margin-bottom: 2%;
   }
 
   .login:hover {

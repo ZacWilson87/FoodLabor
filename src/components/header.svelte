@@ -3,8 +3,8 @@
 
 <header>
   <div class="nav-links">
-    <a href="#/enter-record"><p>Create New Record</p></a>
-    <a href="#/search"><p>Search</p></a>
+    <a id="newRecord" href="#/enter-record">Create New Record</a>
+    <a id="search" href="#/search">Search</a>
   </div>
   <h4 id="headerTitle">Food & Labor Tracker</h4>
 </header>
@@ -44,6 +44,10 @@
   }
   hr {
     width: 98%;
+  }
+  #newRecord:hover,
+  #search:hover {
+    color: white;
   }
 
 </style>

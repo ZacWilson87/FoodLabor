@@ -12,19 +12,18 @@
       message = "You cannot divide by Zero";
       return;
     } else if (
-      typeof laborDollar == "null" ||
-      typeof salesDollar == "null" ||
+      laborDollar == null ||
+      salesDollar == null ||
       typeof date == "undefined"
     ) {
       message = "All fields must be filled out";
-      console.log(laborDollar);
       return;
     } else {
       laborPercent = (laborDollar / salesDollar) * 100;
       message = `New record entered for ${date}`;
     }
 
-    let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj
+    let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj instead?
 
     laborPercent = returnedPercent;
 

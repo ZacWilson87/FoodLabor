@@ -14,7 +14,7 @@
 <style>
   :root {
     width: 100%;
-    background-color: rgb(88, 88, 88);
+    background-color: rgb(54, 54, 54);
   }
 
 </style>
