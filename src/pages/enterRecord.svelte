@@ -6,7 +6,7 @@
   var laborPercent = "waiting...";
   var message = "";
 
-  let convertToPercentage = () => {
+  let convertToPercentageSubmit = () => {
     //laborDollar validation
     if (laborDollar == 0) {
       message = "You cannot divide by Zero";
@@ -23,9 +23,11 @@
       message = `New record entered for ${date}`;
     }
 
-    let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj instead?
+    //let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj instead?
 
-    laborPercent = returnedPercent;
+    laborPercent = Math.round(laborPercent * 100) / 100;
+
+    //laborPercent = returnedPercent;
 
     // create record object to use for api storage
     let newRecord = {
@@ -61,7 +63,9 @@
       <input type="number" bind:value={laborDollar} required />
     </label>
 
-    <button class="submitRecord" on:click={convertToPercentage}>submit</button>
+    <button class="submitRecord" on:click={convertToPercentageSubmit}
+      >submit</button
+    >
 
     <h4>{message}</h4>
 

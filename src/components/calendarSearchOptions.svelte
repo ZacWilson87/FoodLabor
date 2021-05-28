@@ -60,11 +60,6 @@
       </div>
       <button on:click={searchValue}>Submit</button>
     {/if}
-    <!-- 
-        {#if choiceChosen == "month"}
-      <input type={choiceChosen} />
-    {/if}
-    -->
   </div>
 </main>
 
