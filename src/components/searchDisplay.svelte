@@ -1,30 +1,13 @@
 <script>
   import { beforeUpdate, afterUpdate } from "svelte";
 
-  import { deleteRecord } from "../api/records";
-
   export let recordList = [];
+  export let deleteRecord;
 
   let salesTotal = 0;
   let laborTotal = 0;
   let percentTotal = 0;
 
-  afterUpdate(async () => {});
-
-  const deleteThisRecord = async (id) => {
-    const response = await deleteRecord(id);
-    deleteRecFromView(id);
-    //location.reload();
-    return response;
-  };
-  /*
-  //MAYBE to delete record and update view?
-  afterUpdate(async (id) => {
-    const res = await deleteThisRecord(id);
-    deleteRecFromView(id);
-    return res;
-  }); 
-*/
   const addTotals = () => {
     for (let rec of recordList) {
       salesTotal += rec.daily_sales;
@@ -33,17 +16,6 @@
     }
     percentTotal = percentTotal / recordList.length;
     percentTotal = Math.round(percentTotal * 100) / 100;
-  };
-
-  ///////////////WIP//////////////////////////////
-  const deleteRecFromView = (thisId) => {
-    for (let rec of recordList) {
-      if (thisId == rec.id) {
-        recordList.splice(recordList[rec], 1);
-      }
-      console.log(rec);
-    }
-    return;
   };
 
   beforeUpdate(async () => {
@@ -78,10 +50,11 @@
         <p>
           {aRecord.labor_percent}%
         </p>
-        <p id="deleteButton" on:click={deleteThisRecord(aRecord.id)}>X</p>
+        <p id="deleteButton" on:click={deleteRecord(aRecord.id)}>X</p>
       </div>
       <hr />
     {/each}
+
     <div class="entry-titles">
       <h4>Totals</h4>
       <h4>{salesTotal}</h4>

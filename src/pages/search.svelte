@@ -6,6 +6,8 @@
     getRecords,
     getRecordsByTwoDates,
   } from "../api/records";
+  import { deleteRecord } from "../api/records";
+
   import { onMount } from "svelte";
 
   async function handleSearch(event) {
@@ -27,6 +29,17 @@
   onMount(async () => {
     searchResults = await getRecords();
   });
+  // delete a record from db and call to delete from view
+  const deleteThisRecord = async (id) => {
+    const response = await deleteRecord(id);
+    deleteRecFromView(id);
+    return response;
+  };
+  // delete a record from the view
+  const deleteRecFromView = (thisId) => {
+    searchResults = searchResults.filter((rec) => rec.id !== thisId);
+    return;
+  };
 
 </script>
 
@@ -34,7 +47,7 @@
   <Calendar on:searchValues={handleSearch} />
 
   {#if searchResults}
-    <SearchDisplay recordList={searchResults} />
+    <SearchDisplay recordList={searchResults} deleteRecord={deleteThisRecord} />
   {/if}
 </main>
 
