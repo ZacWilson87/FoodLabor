@@ -23,11 +23,10 @@
       message = `New record entered for ${date}`;
     }
 
-    //let returnedPercent = laborPercent.toString().slice(0, 5); //use Math obj instead?
-
+    //convert to 2 digits after decimal
+    salesDollar = Math.round(salesDollar * 100) / 100;
+    laborDollar = Math.round(laborDollar * 100) / 100;
     laborPercent = Math.round(laborPercent * 100) / 100;
-
-    //laborPercent = returnedPercent;
 
     // create record object to use for api storage
     let newRecord = {
@@ -37,8 +36,8 @@
       labor_percent: laborPercent,
     };
 
-    createRecord(newRecord);
     // send new record to records api
+    createRecord(newRecord);
   };
 
 </script>

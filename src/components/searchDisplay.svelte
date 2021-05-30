@@ -16,6 +16,8 @@
     }
     percentTotal = percentTotal / recordList.length;
     percentTotal = Math.round(percentTotal * 100) / 100;
+    salesTotal = Math.round(salesTotal * 100) / 100;
+    laborTotal = Math.round(laborTotal * 100) / 100;
   };
 
   beforeUpdate(async () => {
@@ -38,18 +40,10 @@
 
     {#each recordList as aRecord}
       <div class="dbEntry">
-        <p>
-          {aRecord.for_date}
-        </p>
-        <p>
-          {aRecord.daily_sales}
-        </p>
-        <p>
-          {aRecord.labor_amount}
-        </p>
-        <p>
-          {aRecord.labor_percent}%
-        </p>
+        <p>{aRecord.for_date}</p>
+        <p>{aRecord.daily_sales}</p>
+        <p>{aRecord.labor_amount}</p>
+        <p>{aRecord.labor_percent}%</p>
         <p id="deleteButton" on:click={deleteRecord(aRecord.id)}>X</p>
       </div>
       <hr />

@@ -3,7 +3,9 @@ import axios from 'axios';
 //Currently set for running on local machine, will need to change url when for deployment
 
 const axiosAPI = axios.create({
-    baseURL: "http://localhost:8055"
+    //baseURL: "http://localhost:8055"
+    baseURL: "https://food-labor.herokuapp.com/"
+
 });
 
 const apiRequest = (method, url, request) => {

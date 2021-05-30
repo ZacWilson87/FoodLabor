@@ -3,7 +3,7 @@
 
 <header>
   <div class="nav-links">
-    <a id="newRecord" href="#/enter-record">Create New Record</a>
+    <a id="newRecord" href="#/enter-record">Create Record</a>
     <a id="search" href="#/search">Search</a>
   </div>
   <h4 id="headerTitle">Food & Labor Tracker</h4>
