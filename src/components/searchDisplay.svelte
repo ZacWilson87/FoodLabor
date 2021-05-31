@@ -101,7 +101,7 @@
     color: rgb(184, 90, 90);
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 570px) {
     .display-box {
       width: 100%;
     }
