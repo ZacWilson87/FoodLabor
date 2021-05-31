@@ -64,6 +64,7 @@
     width: 100%;
     justify-content: center;
   }
+
   .entry-titles,
   .dbEntry {
     display: grid;
@@ -98,6 +99,12 @@
 
   #deleteButton:hover {
     color: rgb(184, 90, 90);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .display-box {
+      width: 100%;
+    }
   }
 
 </style>

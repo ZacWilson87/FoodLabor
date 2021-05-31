@@ -48,4 +48,11 @@
     color: white;
   }
 
+  @media only screen and (max-width: 600px) {
+    .nav-links a {
+      font-size: 0.8em;
+      padding-left: 0.5em;
+    }
+  }
+
 </style>

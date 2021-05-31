@@ -4,10 +4,10 @@ import axios from 'axios';
 
 const axiosAPI = axios.create({
     //testing
-    //baseURL: "http://localhost:8055"
+    baseURL: "http://localhost:8055"
 
     //production
-    baseURL: "https://food-labor.herokuapp.com/"
+    //baseURL: "https://food-labor.herokuapp.com/"
 
 });
 
