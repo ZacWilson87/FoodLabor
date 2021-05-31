@@ -17,12 +17,6 @@
     left: 0;
     overflow: hidden;
   }
-  @media only screen and (max-width: 570px) {
-    img {
-      overflow: auto;
-      width: auto;
-    }
-  }
 
   .login-frame {
     background-color: rgba(107, 107, 107, 0.5);
@@ -49,6 +43,17 @@
 
   .login:hover {
     background-color: rgb(114, 185, 0);
+  }
+
+  @media only screen and (max-width: 570px) {
+    img {
+      overflow: auto;
+      width: auto;
+    }
+    .login-frame {
+      width: 100%;
+      left: 0;
+    }
   }
 
 </style>
