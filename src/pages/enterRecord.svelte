@@ -17,10 +17,16 @@
       typeof date == "undefined"
     ) {
       message = "All fields must be filled out";
+      setTimeout(() => {
+        message = "";
+      }, 2000);
       return;
     } else {
       laborPercent = (laborDollar / salesDollar) * 100;
       message = `New record entered for ${date}`;
+      setTimeout(() => {
+        message = "";
+      }, 2000);
     }
 
     //convert to 2 digits after decimal
@@ -110,7 +116,7 @@
     margin: 0.5em;
   }
   h4 {
-    color: rgb(255, 104, 104);
+    color: rgb(223, 139, 139);
   }
 
 </style>
