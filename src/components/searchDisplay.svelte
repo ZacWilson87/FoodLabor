@@ -50,10 +50,10 @@
     {/each}
 
     <div class="entry-titles">
-      <h4>Totals</h4>
-      <h4>{salesTotal}</h4>
-      <h4>{laborTotal}</h4>
-      <h4>{percentTotal}%</h4>
+      <h3>Totals</h3>
+      <h3>{salesTotal}</h3>
+      <h3>{laborTotal}</h3>
+      <h3>{percentTotal}%</h3>
     </div>
   </div>
 </main>
