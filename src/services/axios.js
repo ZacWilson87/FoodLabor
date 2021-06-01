@@ -24,6 +24,9 @@ const apiRequest = (method, url, request) => {
         return Promise.resolve(res.data.data);
     })
         .catch(err => {
+            if (err.message == `Field "for_date" has to be unique.`) {
+                console.log("you suck!!!!")
+            }
             return Promise.reject(err);
         });
 };
