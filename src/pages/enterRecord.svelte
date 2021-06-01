@@ -5,8 +5,9 @@
   var laborDollar = null;
   var laborPercent = "waiting...";
   var message = "";
+  var results = "";
 
-  let convertToPercentageSubmit = () => {
+  let convertToPercentageSubmit = async () => {
     //laborDollar validation
     if (laborDollar == 0) {
       message = "You cannot divide by Zero";
@@ -43,7 +44,11 @@
     };
 
     // send new record to records api
-    createRecord(newRecord);
+
+    results = await createRecord(newRecord);
+    if (results === "Record already exists for this date") {
+      message = results;
+    }
   };
 
 </script>

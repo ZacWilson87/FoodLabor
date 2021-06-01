@@ -4,10 +4,10 @@ import axios from 'axios';
 
 const axiosAPI = axios.create({
     //testing
-    //baseURL: "http://localhost:8055"
+    baseURL: "http://localhost:8055"
 
     //production
-    baseURL: "https://food-labor.herokuapp.com/"
+    //baseURL: "https://food-labor.herokuapp.com/"
 
 });
 
@@ -24,9 +24,6 @@ const apiRequest = (method, url, request) => {
         return Promise.resolve(res.data.data);
     })
         .catch(err => {
-            if (err.message == `Field "for_date" has to be unique.`) {
-                console.log("you suck!!!!")
-            }
             return Promise.reject(err);
         });
 };

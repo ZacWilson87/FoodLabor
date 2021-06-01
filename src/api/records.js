@@ -6,6 +6,7 @@ export const getRecords = async () => {
         console.log(response);
         return response;
     } catch (error) {
+
         console.error(error);
     }
 };
@@ -36,7 +37,12 @@ export const createRecord = async (obj) => {
         const response = await Api.post('/items/records', obj);
         return response;
     } catch (error) {
-        console.error(error);
+        let errorMessage = error.response.data.errors[0].message;
+        if (errorMessage === 'Field "for_date" has to be unique.') {
+            console.log("shit")
+            return "Record already exists for this date";
+        }
+
     }
 }
 
