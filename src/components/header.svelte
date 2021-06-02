@@ -34,6 +34,7 @@
     color: rgb(194, 194, 194);
     display: flex;
     flex-direction: row;
+    padding-right: 3%;
   }
 
   #headerTitle {

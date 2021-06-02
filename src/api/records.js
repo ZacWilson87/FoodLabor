@@ -3,7 +3,6 @@ import Api from '../services/axios'
 export const getRecords = async () => {
     try {
         const response = await Api.get(`/items/records??sort[]=sort&sort[]=-for_date`)
-        console.log(response);
         return response;
     } catch (error) {
 

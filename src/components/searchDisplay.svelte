@@ -1,5 +1,5 @@
 <script>
-  import { beforeUpdate, afterUpdate } from "svelte";
+  import { beforeUpdate } from "svelte";
 
   export let recordList = [];
   export let deleteRecord;
@@ -14,10 +14,15 @@
       laborTotal += rec.labor_amount;
       percentTotal += rec.labor_percent;
     }
-    percentTotal = percentTotal / recordList.length;
-    percentTotal = Math.round(percentTotal * 100) / 100;
     salesTotal = Math.round(salesTotal * 100) / 100;
     laborTotal = Math.round(laborTotal * 100) / 100;
+    //console.log(laborTotal);
+    if (laborTotal == 0) {
+      percentTotal = 0;
+    } else {
+      percentTotal = percentTotal / recordList.length;
+      percentTotal = Math.round(percentTotal * 100) / 100;
+    }
   };
 
   beforeUpdate(async () => {
@@ -38,16 +43,20 @@
       <h3>Labor Percent</h3>
     </div>
 
-    {#each recordList as aRecord}
-      <div class="dbEntry">
-        <p>{aRecord.for_date}</p>
-        <p>{aRecord.daily_sales}</p>
-        <p>{aRecord.labor_amount}</p>
-        <p>{aRecord.labor_percent}%</p>
-        <p id="deleteButton" on:click={deleteRecord(aRecord.id)}>X</p>
-      </div>
-      <hr />
-    {/each}
+    {#if salesTotal == 0 || laborTotal == 0}
+      <h3>No Entries</h3>
+    {:else}
+      {#each recordList as aRecord}
+        <div class="dbEntry">
+          <p>{aRecord.for_date}</p>
+          <p>{aRecord.daily_sales}</p>
+          <p>{aRecord.labor_amount}</p>
+          <p>{aRecord.labor_percent}%</p>
+          <p id="deleteButton" on:click={deleteRecord(aRecord.id)}>X</p>
+        </div>
+        <hr />
+      {/each}
+    {/if}
 
     <div class="entry-titles">
       <h3>Totals</h3>
