@@ -12,15 +12,14 @@
     for (let rec of recordList) {
       salesTotal += rec.daily_sales;
       laborTotal += rec.labor_amount;
-      percentTotal += rec.labor_percent;
     }
     salesTotal = Math.round(salesTotal * 100) / 100;
     laborTotal = Math.round(laborTotal * 100) / 100;
-    //console.log(laborTotal);
+
     if (laborTotal == 0) {
       percentTotal = 0;
     } else {
-      percentTotal = percentTotal / recordList.length;
+      percentTotal = (laborTotal / salesTotal) * 100;
       percentTotal = Math.round(percentTotal * 100) / 100;
     }
   };

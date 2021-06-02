@@ -38,7 +38,6 @@ export const createRecord = async (obj) => {
     } catch (error) {
         let errorMessage = error.response.data.errors[0].message;
         if (errorMessage === 'Field "for_date" has to be unique.') {
-            console.log("shit")
             return "Record already exists for this date";
         }
 
