@@ -6,7 +6,9 @@
     <a id="newRecord" href="#/enter-record">Create Record</a>
     <a id="search" href="#/search">Search</a>
   </div>
-  <h4 id="headerTitle">Food & Labor Tracker</h4>
+  <h4 id="headerTitle">
+    <a href="https://github.com/ZacWilson87/FoodLabor">Food & Labor Tracker</a>
+  </h4>
 </header>
 <hr />
 
@@ -41,14 +43,18 @@
     margin-right: 3%;
     color: rgb(194, 194, 194);
   }
+
   hr {
     width: 98%;
   }
-  #newRecord:hover,
-  #search:hover {
+
+  a:hover {
     color: white;
   }
-
+  a {
+    text-decoration: none;
+    color: rgb(194, 194, 194);
+  }
   @media only screen and (max-width: 600px) {
     .nav-links a {
       font-size: 0.8em;
