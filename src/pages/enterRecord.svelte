@@ -56,6 +56,7 @@
     results = await createRecord(newRecord);
     if (results === "Record already exists for this date") {
       message = "Record already exists for this date";
+      laborPercent = "...waiting";
     }
     // send new record to records DB
 
