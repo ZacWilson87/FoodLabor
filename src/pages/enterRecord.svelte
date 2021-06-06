@@ -8,22 +8,23 @@
   var results = "";
 
   let convertToPercentageSubmit = async () => {
-    //laborDollar validation
-    if (laborDollar == 0) {
-      message = "You cannot divide by Zero";
-      return;
-    } else if (laborDollar < 0) {
-      message = "labor cannot be a negative number";
-      setTimeout(() => {
-        message = "";
-      }, 2000);
-      return;
-    } else if (
+    //input validation
+
+    if (
       laborDollar == null ||
       salesDollar == null ||
       typeof date == "undefined"
     ) {
       message = "All fields must be filled out";
+      setTimeout(() => {
+        message = "";
+      }, 2000);
+      return;
+    } else if (laborDollar == 0) {
+      message = "You cannot divide by Zero";
+      return;
+    } else if (laborDollar < 0) {
+      message = "labor cannot be a negative number";
       setTimeout(() => {
         message = "";
       }, 2000);
@@ -35,11 +36,15 @@
         message = "";
       }, 2000);
     }
-    message = "";
+
+    // message = "";
     //convert to 2 digits after decimal
     salesDollar = Math.round(salesDollar * 100) / 100;
     laborDollar = Math.round(laborDollar * 100) / 100;
     laborPercent = Math.round(laborPercent * 100) / 100;
+    if (laborDollar > salesDollar) {
+      laborPercent = Math.round(laborPercent);
+    }
 
     // create record object to use for api storage
     let newRecord = {
@@ -48,13 +53,12 @@
       labor_amount: laborDollar,
       labor_percent: laborPercent,
     };
-
-    // send new record to records api
-
     results = await createRecord(newRecord);
     if (results === "Record already exists for this date") {
       message = "Record already exists for this date";
     }
+    // send new record to records DB
+
     return;
   };
 
