@@ -32,7 +32,8 @@
 
   .login {
     position: relative;
-    background-color: rgb(82, 131, 3);
+    background-color: rgb(190, 190, 190);
+    filter: opacity(50%);
     border: 0.1rem solid black;
     color: black;
     border-color: black;
