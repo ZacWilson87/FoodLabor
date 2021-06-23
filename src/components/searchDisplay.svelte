@@ -3,6 +3,7 @@
 
   export let recordList = [];
   export let deleteRecord;
+  export let editRecord;
 
   let salesTotal = 0;
   let laborTotal = 0;
@@ -30,7 +31,6 @@
     percentTotal = 0;
     addTotals();
   });
-
 </script>
 
 <main>
@@ -114,5 +114,4 @@
       width: 100%;
     }
   }
-
 </style>

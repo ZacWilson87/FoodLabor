@@ -52,3 +52,13 @@ export const deleteRecord = async (id) => {
         console.error(error)
     }
 }
+
+
+export const editRecord = async (id) => {
+    try {
+        const response = await Api.put(`/items/records/${id}`);
+        return response;
+    } catch (error) {
+        console.error(error)
+    }
+}
